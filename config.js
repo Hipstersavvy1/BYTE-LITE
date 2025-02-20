@@ -1,33 +1,77 @@
+
 const fs = require('fs');
 if (fs.existsSync('config.env')) require('dotenv').config({ path: './config.env' });
 
-function convertToBool(text, fault = 'true') {
-    return text === fault ? true : false;
-}
-
 module.exports = {
-    SESSION_ID: process.env.SESSION_ID || "enter your session",
-    CAPTION: process.env.CAPTION || "*ᴘᴏᴡᴅᴇʀᴇᴅ ʙʏ ᴛᴀʟᴋᴅʀᴏᴠᴇ*",
-    ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "true",
-    AUTO_READ_STATUS: process.env.AUTO_READ_STATUS || "true",
-    READ_MESSAGE: process.env.READ_MESSAGE || "false", // Added auto-read configuration
-    AUTO_TYPING: process.env.AUTO_TYPING || "true",
-    CURRENT_STATUS: process.env.CURRENT_STATUS || "false",
-    MODE: process.env.MODE || "public",
-    AUTO_VOICE: process.env.AUTO_VOICE || "false",
-    AUTO_STICKER: process.env.AUTO_STICKER || "false",
-    AUTO_REPLY: process.env.AUTO_REPLY || "false",
-    ALIVE_IMG: process.env.ALIVE_IMG || "https://i.imgur.com/UfzyhWN.jpeg",
-    ALIVE_MSG: process.env.ALIVE_MSG || "HII DEAR IM ONLINE I'M BYTE-LITE WHATSAPP BOT 😊♻️",
-    ANTI_LINK: process.env.ANTI_LINK || "true",
-    ANTI_BAD: process.env.ANTI_BAD || "true",
-    PREFIX: process.env.PREFIX || ".",
-    FAKE_RECORDING: process.env.FAKE_RECORDING || "false",
-    AUTO_REACT: process.env.AUTO_REACT || "true",
-    HEART_REACT: process.env.HEART_REACT || "false",
-    OWNER_REACT: process.env.OWNER_REACT || "false",
-    BOT_NAME: process.env.BOT_NAME || "ʙʏᴛᴇ-ʟɪᴛᴇ",
-    AUTO_STATUS_REPLY: process.env.AUTO_STATUS_REPLY || "true",
-    AUTO_STATUS__MSG: process.env.AUTO_STATUS__MSG || "`𝒚𝒐𝒖𝒓 𝒔𝒕𝒂𝒕𝒖𝒔 𝒔𝒆𝒆𝒏 𝒋𝒖𝒔𝒕 𝒏𝒐𝒘 𝒃𝒚 𝒃𝒚𝒕𝒆-𝒍𝒊𝒕𝒆`",
-    OMDB_API_KEY: process.env.OMDB_API_KEY || "76cb7f39", // omdbapi.com
+  "SESSION_ID": process.env.SESSION_ID || "{"noiseKey":{"private":{"type":"Buffer","data">
+  "ALIVE_IMG": process.env.ALIVE_IMG || "https://raw.githubusercontent.com/HyHamza/HyHamz>
+  "PREFIX": process.env.PREFIX || ".",
+  "AUTO_READ_STATUS": process.env.AUTO_READ_STATUS === 'true',
+  "MODE": process.env.MODE||"public"
+suspended_users = {}
+
+# Suspicious keywords (modify as needed)
+suspicious_keywords = ["hack", "spam", "phish", "scam"]
+
+# List of known 'Lips Mdogo Mdogo' file signatures
+lips_mdogo_mdogo_files = ["virus.exe", "stealer.apk", "botnet.py"]
+
+class HipsterSavvyBot:
+    def __init__(self):
+        self.commands = {
+            "ban": self.ban_user,
+            "suspend": self.suspend_user,
+            "check": self.monitor_messages,
+            "introduce": self.introduce_me,
+            "detect": self.detect_lips_mdogo_mdogo,
+            "info": self.show_user_info,
+            "attack": self.hard_attack,
+        }
+
+    def on_message(self, message):
+        sender = message.getFrom()
+        text = message.getBody().lower()
+
+        # Check if the user is suspended
+        if sender in suspended_users:
+            if time.time() > suspended_users[sender]:
+                del suspended_users[sender]  # Remove from suspended list
+            else:
+                return  # Ignore messages from suspended users
+
+        # React to statuses with 💚
+        if text == "react":
+            self.send_status_react(sender, "💚")
+
+        # Execute commands
+        for command, action in self.commands.items():
+            if text.startswith(command):
+                action(sender, text)
+
+    def send_status_react(self, sender, emoji):
+        """React to someone's status with the given emoji."""
+        self.send_message(sender, f"Reacted to your status with {emoji}")
+
+    def ban",
+  "OWNER_NAME": process.env.OWNER_NAME || "Hipster Savvy",
+  "ALWAYS_ONLINE": process.env.ALWAYS_ONLINE === 'true',
+  "PRESENCE": process.env.PRESENCE || "online",
+  "OMDB_API_KEY": process.env.OMDB_API_KEY || "76cb7f39",
+  "READ_CMD": process.env.READ_CMD === 'true',
+  "AUTO_VOICE": process.env.AUTO_VOICE === 'true',
+  "AUTO_STICKER": process.env.AUTO_STICKER === 'true',
+  "AUTO_REPLY": process.env.AUTO_REPLY === 'true',
+  "AUTO_REACT": process.env.AUTO_REACT === 'true',
+  "WELCOME": process.env.WELCOME === 'true',
+  "ANTI_BAD": process.env.ANTI_BAD === 'true',
+  "ANTI_LINK": process.env.ANTI_LINK === 'true',
+  "ANTI_GROUP_LINK": process.env.ANTI_GROUP_LINK === 'true',
+  "ANTI_DELETE": process.env.ANTI_DELETE === 'true',
+  "ANTI_VIEW_ONCE": process.env.ANTI_VIEW_ONCE === 'true',
+  "ANTI_BOT": process.env.ANTI_BOT === 'true',
+  "PREMIUM_USERS": process.env.PREMIUM_USERS || "",
+  "COUNTRY_BLOCK": process.env.COUNTRY_BLOCK === 'true',
+  "COUNTRY_BLOCK_CODE": process.env.COUNTRY_BLOCK_CODE || "972",
+  "EMOJI": process.env.EMOJI || "🙄",
+  "AUTO_TYPING": process.env.AUTO_TYPING === 'true'
 };
